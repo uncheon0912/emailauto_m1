@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>머니라함 후기 인증</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="site-header" aria-label="상단">
+        <a class="brand" href="#" aria-label="머니라함 홈">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>머니라함</span>
+        </a>
+        <nav class="nav-links" aria-label="페이지 정보">
+          <a href="#review-form">인증하기</a>
+          <a href="#flow">진행순서</a>
+        </nav>
+        <a class="nav-cta" href="#review-form">REQUEST LINK</a>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="particle-field" aria-hidden="true">
+          <span class="particle-cluster cluster-a"></span>
+          <span class="particle-cluster cluster-b"></span>
+          <span class="particle-cluster cluster-c"></span>
+          <span class="particle-node node-a"></span>
+          <span class="particle-node node-b"></span>
+          <span class="particle-node node-c"></span>
+          <span class="particle-node node-d"></span>
+          <span class="particle-node node-e"></span>
+          <span class="particle-node node-f"></span>
+        </div>
+
+        <div class="hero-copy">
+          <p class="eyebrow">REVIEW SIGNAL CONFIRMED</p>
+          <h1 id="page-title">후기 캡처를 우주로 보내면 링크가 메일로 도착합니다.</h1>
+          <p class="hero-description">
+            카카오톡 후기 인증 이미지를 업로드하고 이메일을 입력해 주세요.
+            머니라함이 확인 기록을 남기고 안내 링크를 자동으로 보내드립니다.
+          </p>
+        </div>
+
+        <form id="review-form" class="review-form" aria-label="후기 인증 신청 폼">
+          <div class="form-heading">
+            <p>머니라함 후기 인증</p>
+            <h2>메일로 받기</h2>
+          </div>
+
+          <div class="upload-field">
+            <label for="capture">카카오톡 후기 캡처</label>
+            <input id="capture" name="capture" type="file" accept="image/png,image/jpeg,image/webp" required>
+            <button class="file-trigger" type="button">
+              <span id="file-label">이미지 선택</span>
+              <span class="button-icon" aria-hidden="true">+</span>
+            </button>
+          </div>
+
+          <div class="input-group">
+            <label class="field-label" for="email">받을 이메일</label>
+            <input id="email" name="email" type="email" placeholder="email@example.com" autocomplete="email" required>
+          </div>
+
+          <label class="consent-row">
+            <input id="consent" name="consent" type="checkbox" required>
+            <span>개인정보 수집 및 이용에 동의합니다.</span>
+          </label>
+
+          <button id="submit-button" class="primary-button" type="submit">가이드 링크 받기</button>
+
+          <details class="privacy-note">
+            <summary>개인정보 수집 및 이용 안내</summary>
+            <p>
+              수집 항목은 이메일 주소, 카카오톡 후기 캡처 이미지, 신청 시간입니다.
+              이용 목적은 후기 확인 및 머니라함 가이드 링크 발송이며, 테스트 기준 보관 기간은 신청일로부터 30일입니다.
+            </p>
+          </details>
+
+          <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="flow" class="flow-strip" aria-label="진행 순서">
+        <article>
+          <span>01</span>
+          <strong>후기 캡처 준비</strong>
+          <p>카카오톡에 남긴 머니라함 후기를 캡처합니다.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <strong>이미지와 이메일 입력</strong>
+          <p>캡처 파일과 링크를 받을 이메일 주소를 남깁니다.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <strong>메일 링크 수신</strong>
+          <p>입력한 이메일로 안내 링크가 자동 발송됩니다.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="config.local.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

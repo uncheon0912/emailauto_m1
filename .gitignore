@@ -1,0 +1,12 @@
+.env
+*.local
+config.local.js
+apps-script/Code.local.gs
+.agents/
+.codex/
+ddmkt-template-probe/
+ddmkt-vertical-promo/
+node_modules/
+dist/
+.DS_Store
+Thumbs.db

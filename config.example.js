@@ -1,0 +1,3 @@
+window.MIDAM_CONFIG = {
+  GOOGLE_APPS_SCRIPT_WEB_APP_URL: ''
+};
