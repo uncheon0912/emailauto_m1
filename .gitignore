@@ -4,6 +4,7 @@ config.local.js
 apps-script/Code.local.gs
 .agents/
 .codex/
+.netlify/
 ddmkt-template-probe/
 ddmkt-vertical-promo/
 node_modules/
