@@ -4,6 +4,9 @@
   --color-ash: #bdbdbd;
   --color-smoke: #9a9a9a;
   --color-plum-voltage: #8052ff;
+  --color-naver-pastel: #9be7b4;
+  --color-naver-hover: #03c75a;
+  --color-ink-green: #07150d;
   --color-amber-spark: #ffb829;
   --color-lichen: #15846e;
   --font-acronym: "Acronym", "Inter", "Noto Sans KR", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -59,6 +62,40 @@ button {
   padding: 24px 0 60px;
 }
 
+.page-shell::before,
+.page-shell::after,
+.hero::after {
+  position: fixed;
+  z-index: 0;
+  width: 150px;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  opacity: 0;
+  transform: rotate(-28deg);
+  content: "";
+}
+
+.page-shell::before {
+  top: 16%;
+  left: 78%;
+  animation: shootingStar 7.8s linear infinite 1.2s;
+}
+
+.page-shell::after {
+  top: 42%;
+  left: 62%;
+  width: 110px;
+  animation: shootingStar 10.5s linear infinite 5.4s;
+}
+
+.hero::after {
+  top: 72%;
+  left: 86%;
+  width: 130px;
+  animation: shootingStar 12s linear infinite 8.2s;
+}
+
 .site-header {
   position: sticky;
   top: 18px;
@@ -85,6 +122,12 @@ button {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.021em;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.brand:hover {
+  color: var(--color-naver-pastel);
+  transform: translateY(-1px);
 }
 
 .brand-mark {
@@ -94,6 +137,12 @@ button {
   border: 1.5px solid var(--color-plum-voltage);
   border-radius: 9px;
   transform: rotate(45deg);
+  transition: border-color 180ms ease, transform 220ms ease;
+}
+
+.brand:hover .brand-mark {
+  border-color: var(--color-naver-pastel);
+  transform: rotate(135deg);
 }
 
 .brand-mark::after {
@@ -125,16 +174,24 @@ button {
 .nav-cta,
 .primary-button {
   border-radius: var(--radius-3xl);
-  background: var(--color-plum-voltage);
-  color: var(--color-bone);
+  background: var(--color-naver-pastel);
+  color: var(--color-ink-green);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
 }
 
 .nav-cta {
   padding: 14px 16px;
+}
+
+.nav-cta:hover,
+.primary-button:hover {
+  background: var(--color-naver-hover);
+  color: var(--color-bone);
+  transform: translateY(-2px);
 }
 
 .hero {
@@ -154,6 +211,7 @@ button {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  animation: fieldDrift 18s ease-in-out infinite alternate;
 }
 
 .hero-copy,
@@ -173,6 +231,7 @@ button {
   width: 5px;
   height: 5px;
   background: var(--color-bone);
+  animation: particlePulse 4.6s ease-in-out infinite alternate;
 }
 
 .cluster-a {
@@ -219,6 +278,7 @@ button {
 .particle-node {
   border: 1px solid currentColor;
   opacity: 0.88;
+  animation: nodeFloat 7s ease-in-out infinite alternate;
 }
 
 .node-a {
@@ -290,7 +350,7 @@ button {
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--color-plum-voltage);
+  color: var(--color-naver-pastel);
   font-size: 12px;
   font-weight: 700;
   line-height: 1.5;
@@ -305,10 +365,10 @@ p {
 h1 {
   margin-bottom: 30px;
   color: var(--color-bone);
-  font-size: clamp(58px, 8.9vw, 113px);
+  font-size: clamp(29px, 4.45vw, 56px);
   font-weight: 200;
-  line-height: 0.84;
-  letter-spacing: -0.04em;
+  line-height: 1.03;
+  letter-spacing: -0.025em;
 }
 
 .hero-description {
@@ -328,6 +388,12 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-3xl);
   background: var(--color-void);
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.review-form:hover {
+  border-color: rgba(155, 231, 180, 0.42);
+  transform: translateY(-2px);
 }
 
 .form-heading p {
@@ -382,6 +448,7 @@ input[type="email"] {
   color: var(--color-bone);
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
 }
 
 .file-trigger {
@@ -395,16 +462,29 @@ input[type="email"] {
   letter-spacing: 0.025em;
 }
 
+.file-trigger:hover,
+input[type="email"]:hover {
+  border-color: rgba(155, 231, 180, 0.64);
+  background: rgba(155, 231, 180, 0.045);
+}
+
 .button-icon {
   display: grid;
   place-items: center;
   flex: 0 0 34px;
   height: 34px;
   color: var(--color-bone);
-  background: var(--color-plum-voltage);
+  background: var(--color-naver-pastel);
   border-radius: 50%;
   font-size: 22px;
   line-height: 1;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.file-trigger:hover .button-icon {
+  color: var(--color-bone);
+  background: var(--color-naver-hover);
+  transform: rotate(90deg);
 }
 
 input[type="email"] {
@@ -438,7 +518,7 @@ input::placeholder {
 .consent-row input {
   width: 18px;
   height: 18px;
-  accent-color: var(--color-plum-voltage);
+  accent-color: var(--color-naver-hover);
 }
 
 .primary-button {
@@ -483,7 +563,7 @@ input::placeholder {
 
 .status-message.success {
   color: var(--color-bone);
-  border-color: rgba(21, 132, 110, 0.72);
+  border-color: rgba(155, 231, 180, 0.72);
 }
 
 .status-message.error {
@@ -504,12 +584,19 @@ input::placeholder {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-3xl);
   background: transparent;
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.flow-strip article:hover {
+  border-color: rgba(155, 231, 180, 0.42);
+  background: rgba(155, 231, 180, 0.035);
+  transform: translateY(-4px);
 }
 
 .flow-strip span {
   display: block;
   margin-bottom: 36px;
-  color: var(--color-plum-voltage);
+  color: var(--color-naver-pastel);
   font-size: 12px;
   font-weight: 700;
   line-height: 1.5;
@@ -588,7 +675,7 @@ input::placeholder {
   }
 
   h1 {
-    font-size: 58px;
+    font-size: 34px;
   }
 
   .hero-description {
@@ -607,5 +694,67 @@ input::placeholder {
   .particle-field {
     inset: 0 -80% 26% 12%;
     opacity: 0.54;
+  }
+}
+
+@keyframes shootingStar {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-28deg);
+  }
+
+  4% {
+    opacity: 0.9;
+  }
+
+  14% {
+    opacity: 0;
+    transform: translate3d(-420px, 220px, 0) rotate(-28deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-420px, 220px, 0) rotate(-28deg);
+  }
+}
+
+@keyframes fieldDrift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(-18px, 16px, 0) scale(1.025);
+  }
+}
+
+@keyframes particlePulse {
+  from {
+    opacity: 0.58;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes nodeFloat {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(10px, -12px, 0) rotate(12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
