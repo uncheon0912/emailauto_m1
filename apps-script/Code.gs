@@ -5,6 +5,8 @@ const CONFIG = {
   FROM_NAME: '머니라함'
 };
 
+const SCRIPT_VERSION = 'moneyraham-html-email-2026-06-26-v2';
+
 const EMAIL_CONTENT = {
   badge: '머니라함 자료',
   title: '후기 인증 가이드북입니다',
@@ -23,6 +25,18 @@ const EMAIL_CONTENT = {
   footer: '본 메일은 머니라함 자료 신청에 따라 자동 발송되었습니다.',
   contact: '문의: naminsoo@aixlife.co.kr'
 };
+
+function doGet() {
+  return jsonResponse({
+    ok: true,
+    version: SCRIPT_VERSION,
+    fromName: CONFIG.FROM_NAME,
+    driveFolderId: CONFIG.DRIVE_FOLDER_ID,
+    guideLink: CONFIG.GUIDE_LINK,
+    emailTitle: EMAIL_CONTENT.title,
+    htmlEmail: true
+  });
+}
 
 function doPost(event) {
   try {
